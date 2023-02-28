@@ -1,0 +1,19 @@
+body {
+    background-color: grey;
+    color: white;
+    font-size: 16pt}
+h1 {
+    text-align: center}
+
+menu {
+    position: relative;
+    width:100%;
+    height:20%;
+    }
+ul li {
+    display: inline;
+}
+
+a:link, a:active, a:hover, a:visited {
+color: #FFF;
+text-decoration: none;}
