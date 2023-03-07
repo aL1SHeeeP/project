@@ -1,0 +1,132 @@
+{% extends  "base.html" %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-2"></div>
+    <div class="col-8 inner_main">
+
+        <div class="example-parent"
+             ondragstart="onDragStart(event)"
+             ondragover="onDragOver(event)"
+            >
+            <div class="m_parent">
+                <div class="example-origin">
+                    Основные предметы
+                    <div
+                            id="draggable-1"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Математика
+                    </div>
+                    <div
+                            id="draggable-2"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Русский язык
+                    </div>
+                    <div
+                            id="draggable-3"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Английский язык
+                    </div>
+                    <div
+                            id="draggable-4"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Литература
+                    </div>
+                    <div
+                            id="draggable-5"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        История
+                    </div>
+                </div>
+                <div class="example-origin">
+                    Предметы по выбору
+                    <div
+                            id="draggable-6"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Биология
+                    </div>
+                    <div
+                            id="draggable-7"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        География
+                    </div>
+                    <div
+                            id="draggable-8"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Второй иностранный язык
+                    </div>
+                    <div
+                            id="draggable-9"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Химия
+                    </div>
+                    <div
+                            id="draggable-10"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Физика
+                    </div>
+                    <div
+                            id="draggable-11"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Информатика
+                    </div>
+                    <div
+                            id="draggable-12"
+                            class="example-draggable"
+                            draggable="true"
+                            ondragstart="onDragStart(event)"
+                    >
+                        Обществознание
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-dropzone"
+                 ondragstart="onDragStart(event)"
+                 ondragover="onDragOver(event)"
+                 ondrop="onDrop(event)">
+                Мои предметы
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="col-2"></div>
+
+</div>
+{% endblock %}
