@@ -1,0 +1,14 @@
+{% extends  "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+<div class="row">
+
+    <div class="col-2"></div>
+    <div class="col-8 inner_main">
+        {{ r }}
+    </div>
+    <div class="col-2"></div>
+
+</div>
+{% endblock %}

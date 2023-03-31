@@ -1,0 +1,59 @@
+.draggable, .item_new{
+    
+    font-size: large;
+    border: thin solid black;
+    padding: 10px;
+    width: 280px;
+    text-align: center;
+    margin: 4px;
+}
+#general li {
+    
+    font-size: large;
+    border: thin solid black;
+    padding: 10px;
+    width: 280px;
+    text-align: center;
+    margin: 4px;
+}
+
+.start_drop #droppable {
+    position: relative;
+    border: thin solid black;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    min-height: 600px;
+    background-color: azure;
+
+}
+
+#container {
+    border: none;
+    width: auto;
+    height: auto
+}
+
+ul {
+    list-style: none;
+}
+h2, h3 {
+    padding: 20px;}
+.start_drop {text-align: center;}
+
+.itemlink {
+    text-decoration: none;
+}
+
+.itmlnk {
+    display: none;
+}
+
+.itmlnk_new {
+    display: inline;
+
+}
+input.numb {
+width:40px;
+font-size:16pt
+}

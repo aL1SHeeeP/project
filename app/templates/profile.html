@@ -1,0 +1,76 @@
+{% extends  "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+<div class="row">
+
+    <div class="col-2"></div>
+    <div class="col-8 inner_main">
+
+      <div class="container-fluid" id="container">
+
+                    <div class="row">
+
+                        <div class="col-4 start_drop">
+                            <h3>Обязательные предметы</h3>
+
+
+                                <ul id="general">
+                                    {% for subj in subjects_general%}
+                                    <li class="ui-widget ui-corner-all ui-state-error">
+                                        {{ subj.subject_name }}
+                                        <input type="number" id="item-{{ subj.subject_name_eng }}" name="item-{{subj.subject_name_eng}}" min="{{subj.subj_min}}" max="{{subj.subj_max}}" value="{{subj.subj_value}}">
+                                    </li>
+
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                        <div class="col-4 start_drop">
+                            <h3>Предметы по выбору</h3>
+                            <div id="droppable">
+                                <form id="subj_form" method="POST" onsubmit="form_submit()">
+                                <ul id="droplist">
+                                    <li>Добавьте сюда</li>
+                                    <li>Добавьте сюда</li>
+                                    <li>Добавьте сюда</li>
+                                    <li>Добавьте сюда</li>
+                                    <li>Добавьте сюда</li>
+                                    <li> </li>
+                                    <li> </li>
+                                    <li> </li>
+                                </ul>
+                                </form>
+                            </div>
+
+                        <input type="submit" id="sub" value="Сохранить">
+                        </div>
+
+
+                        <div class="col-4 start_drop">
+                            <h3>Список предметов</h3>
+                            <ul>
+                                {% for subj in subjects%}
+
+                                <li class="draggable itemx ui-widget ui-corner-all ui-state-error">
+                                    <span class="itmlnk">
+                                        <a class="itemlink" id="delete-{{subj.subject_name_eng}}" href=#>&#10006;</a>
+                                    </span>
+                                    <span>{{subj.subject_name}}</span>
+                                    <span>
+                                        <input type="number" class="numb" id="item-{{subj.subject_name_eng}}" name="item-{{subj.subject_name_eng}}" min="{{subj.subj_min}}" max="{{subj.subj_max}}" value="{{subj.subj_value}}">
+                                    </span>
+
+                                </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+            </div>
+    </div>
+    <div class="col-2"></div>
+
+</div>
+{% endblock %}
