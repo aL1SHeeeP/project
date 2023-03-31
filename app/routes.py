@@ -3,22 +3,35 @@ from app import app, db
 from app.forms import LoginForm, RegisterForm
 from app.models import *
 
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     title = 'Главная страница'
     return render_template('index.html', title=title)
 
+
 @app.route('/languages/<type>/<grade>')
 def languages(type, grade):
     title = 'Иностранные языки'
     if type == 'english':
         teachers = EnglishTeachers.query.all()
+        pupils_raw = Pupils.query.filter_by(grade=grade).join(EnglishGroups, EnglishGroups.group_id == Pupils.eng_group).add_columns(
+            Pupils.pupil_id, Pupils.pupil_name, Pupils.grade, Pupils.eng_group.label('gr_id'), EnglishGroups.group_name.label('gr_name')).all()
+        print(pupils_raw)
+        pupils = {(x[4]): [] for x in pupils_raw}
+        groups_names = {x[4]: x[5] for x in pupils_raw}
+        for p in pupils_raw:
+            pupils[(p[4])] += [(p[1], p[2])]
+        print(pupils)
     elif type == 'secondlang':
         teachers = SecondLangTeachers.query.all()
-    pupils = Pupils.query.filter_by(grade=grade).add_columns(Pupils.pupil_name, Pupils.grade, Pupils.eng_group).all()
+        gr_db = SecondLangGroups
+        gr_id = 'second_group'
 
-    return render_template('languages.html', title=title, teachers=teachers, pupils=pupils, type=type)
+    grade_title = f'Список групп {grade} классов'
+    return render_template('languages.html', title=title, grade_title=grade_title, teachers=teachers, pupils=pupils, groups_names=groups_names,
+                           type=type)
 
 
 @app.route('/profile')

@@ -20,6 +20,7 @@
 <div class="row l1">
     <div class="col-2"></div>
     <div class="col-8">
+        <h3>{{ grade_title }}</h3>
         <form name="languages">
             <ol>
                 {% for teacher in teachers %}
@@ -27,16 +28,19 @@
                 {% endfor %}
 
             </ol>
+        <div class="row">
+            {% for gr in pupils %}
+            <div class="col-2">
+                <p>{{ groups_names[gr] }}</p>
+                <select name="group_{{gr}}" size="{% if pupils[gr]|length < 10 %} {{ 10 }} {% else %} {{ pupils[gr]|length }} {% endif %}">
+                    {% for pupil in pupils[gr] %}
+                    <option value="{{ pupil[0] }}">{{ pupil[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-
-            <select name="pupils" size="{% if pupils|length < 10 %} {{ 10 }} {% else %} {{ pupils|length }} {% endif %}" width="">
-                {% for pupil in pupils %}
-                <option value="{{ pupil.pupil_id }}">{{ pupil.pupil_name }}</option>
-                {% endfor %}
-            </select>
-
-
-            </ol>
+            {% endfor %}
+            </div>
             <p><input type="submit" text="Сохранить"></p>
         </form>
     </div>

@@ -43,6 +43,7 @@ class Curriculum(db.Model):
     def __repr__(self):
         return f'Урок {self.subject_name}'
 
+
 class EnglishTeachers(db.Model):
     teacher_id = db.Column(db.Integer, primary_key=True)
     teacher_name = db.Column(db.String(30), index=True, unique=True)
